@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Transaksi Management System</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Transaksi Management System</h1>
+		<hr>
+		<h2>Save Transaksi</h2>
+		<hr>
+		<form action="#" th:action="@{/saveEmployee}" th:object="${employee}"
+			method="POST">
+			<label>Nomer Rekening:</label>
+			<input type="text" th:field="*{nomerRekening}"
+				   placeholder="Nomer Rekening" class="form-control mb-4 col-4" required>
+			<label>Tanggal:</label>
+			<input type="date"  th:field="*{tanggal}" class="form-control mb-4 col-4" required/>
+
+			<label>Jenis Transaksi:</label>
+			<select th:field="*{jenisTransaksi}" class="form-control mb-4 col-4" required>
+				<option th:value="'Debet'" th:text="Debet"></option>
+				<option th:value="'Credit'" th:text="Credit"></option>
+			</select>
+
+			<label>Nominal Transaksi:</label>
+			<input type="text" th:field="*{nominalTransaksi}"
+				   placeholder="Nominal Transaksi" class="form-control mb-4 col-4" required>
+
+		<button type="submit" class="btn btn-info col-2"> Save Transaksi</button>
+		</form>
+		<hr>
+		<a th:href = "@{/}"> Back to Transaksi List</a>
+	</div>
+</body>
+</html>
